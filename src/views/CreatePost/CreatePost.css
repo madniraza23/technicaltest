@@ -1,0 +1,137 @@
+.createPostDiv {
+  margin-left: 10%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+form {
+  width: 60%;
+  margin-top: 70px;
+  margin-left: 10px;
+  text-align: justify;
+  margin-bottom: 50px;
+}
+
+form .formHeading {
+  font-size: 26px;
+  letter-spacing: 0.5;
+}
+
+form .fieldDivs {
+  margin-top: 15px;
+}
+
+form .fieldDivs .fieldHeadings {
+  font-size: 18px;
+}
+
+form .fieldDivs input {
+  margin-top: 5px;
+  width: 100%;
+  height: 38px;
+  padding: 15px;
+  font-size: 18px;
+}
+
+form .fieldDivs .descriptionInput {
+  height: 134px;
+  width: 100%;
+  font-size: 18px;
+  resize: none;
+}
+
+form select {
+  width: 100%;
+  height: 38px;
+  font-size: 18px;
+}
+
+form select option {
+  font-size: 18px;
+}
+
+form .fieldDivs .fieldInstructions {
+  font-size: 14px;
+  color: #868889;
+  letter-spacing: 0.5;
+}
+
+form .createTextButton {
+  border: 0;
+  outline: 0;
+  height: 30px;
+  padding: 5px 25px;
+  background: #5652dd;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.error {
+  color: #E90E00;
+  font-size: 14px;
+}
+
+.successAlert{
+  background-color: rgb(251, 251, 251);
+  border: solid 1px rgb(243, 242, 242);
+  padding: 20px;
+  position: fixed;
+  height: 150px;
+  width: 300px;
+  top: 25%;
+  left: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.alertMessage {
+  margin-bottom: 10px;
+  font-weight: 300;
+  color: #2BAE66ff;
+}
+
+.buttonsDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonsDiv .btn {
+  width: 80px;
+  background-color: #5652DD;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  padding: 5px;
+  margin: 5px;
+}
+
+@media (max-width: 425px) {
+  .createPostDiv {
+      justify-content: center;
+      margin-left: 0;
+  }
+  form {
+    width: 90%;
+  }
+  .successAlert {
+    left: 15%
+  }
+}
+
+@media (max-width: 375px) {
+  .successAlert {
+    left: 10%;
+  }
+}
+
+@media (max-width: 320px) {
+  .successAlert {
+    left: 3%;
+  }
+}

@@ -1,0 +1,109 @@
+.postsDiv {
+  height: 150px;
+  background-color: #f9f9f9;
+  padding: 20px;
+}
+
+@media (max-width: 1024px) {
+  .postsDiv {
+    height: 150px;
+  }
+}
+
+.postTitle {
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+}
+
+.postCategory {
+  font-size: 14px;
+  color: rgb(173, 173, 173);
+}
+
+.postDescription {
+  margin-top: 15px;
+}
+
+.postOptions {
+  position: relative;
+  height: 100%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.icons {
+  margin-right: 10px;
+  color: rgb(195, 195, 195);
+}
+.postOptions .mainOptionList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  background: #fff;
+  box-shadow: 0 4px 2px -2px gray;
+  position: absolute;
+  right: 0;
+  list-style: none;
+}
+.postOptions .mainOptionList li {
+  width: 100%;
+  padding: 10px;
+}
+
+.postOptions .mainOptionList li:hover {
+  background-color: #fafbfb;
+}
+
+.subOptionDark {
+  display: none;
+  transition: 1s;
+}
+
+.subOptionDark::before {
+  content: "";
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0.3;
+}
+.postOptions .subOptionList {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  border-radius: 10px 10px 0px 0px;
+  background: #fff;
+  position: fixed;
+  left: 5%;
+  bottom: 0;
+  list-style: none;
+  z-index: 9999;
+}
+
+.postOptions .subOptionList li {
+  width: 100%;
+  padding: 15px;
+}
+.postOptions .subOptionList li:hover {
+  background-color: rgb(231, 231, 231);
+}
+
+@media (max-width: 425px) {
+  .subOptionDark {
+    display: block;
+  }
+  .postOptions .mainOptionList {
+    display: none;
+  }
+  .postOptions .subOptionList {
+    display: flex;
+  }
+}

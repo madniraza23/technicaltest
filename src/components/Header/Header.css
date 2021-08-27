@@ -1,0 +1,67 @@
+.headerDiv {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  background-color: #ffff;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.06);
+}
+
+.headerContent {
+  display: flex;
+  height: 100%;
+  width: 90%;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.logoDiv {
+  margin-left: 5.37;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 150px;
+  height: 100%;
+}
+
+.createPostButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.createPostButton .createTextButton {
+  border: 0;
+  outline: 0;
+  height: 30px;
+  padding: 5px 25px;
+  background: #5652dd;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.createPostButton .createSignButton {
+  border: 0;
+  outline: 0;
+  display: none;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  background: #5652dd;
+  color: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 2px 3px rgb(14, 12, 12);
+  cursor: pointer;
+}
+
+@media (max-width: 425px) {
+  .createPostButton .createTextButton {
+    display: none;
+  }
+  .createPostButton .createSignButton {
+    display: inline-block;
+  }
+}

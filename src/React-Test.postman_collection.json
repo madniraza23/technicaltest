@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "225d2517-2756-49fb-9ab5-b57bdc544966",
+		"name": "React-Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "test-id",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"Test\",\n\t\"description\":\"Desc\",\n\t\"category\":\"1\",\n\t\"sort_order\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-react-test-dd08f.cloudfunctions.net/posts",
+					"protocol": "https",
+					"host": [
+						"us-central1-react-test-dd08f",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch all posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test-id",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-react-test-dd08f.cloudfunctions.net/posts/",
+					"protocol": "https",
+					"host": [
+						"us-central1-react-test-dd08f",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update post",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "test-id",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\":\"Test update\",\n\t\"description\":\"Desc\",\n\t\"category\":\"1\",\n\t\"sort_order\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://us-central1-react-test-dd08f.cloudfunctions.net/posts/ElFwcUvHoRUgUoK4MfVr",
+					"protocol": "https",
+					"host": [
+						"us-central1-react-test-dd08f",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"posts",
+						"ElFwcUvHoRUgUoK4MfVr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete post",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "test-id",
+						"value": "1234",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-react-test-dd08f.cloudfunctions.net/posts/ElFwcUvHoRUgUoK4MfVr",
+					"protocol": "https",
+					"host": [
+						"us-central1-react-test-dd08f",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"posts",
+						"ElFwcUvHoRUgUoK4MfVr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Categories",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "test-id",
+						"value": "086754ee-01f4-11ec-9a03-0242ac13000",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://us-central1-react-test-dd08f.cloudfunctions.net/categories",
+					"protocol": "https",
+					"host": [
+						"us-central1-react-test-dd08f",
+						"cloudfunctions",
+						"net"
+					],
+					"path": [
+						"categories"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

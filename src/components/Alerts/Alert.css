@@ -1,0 +1,64 @@
+.successAlert {
+  background-color: rgb(251, 251, 251);
+  border: solid 1px rgb(243, 242, 242);
+  padding: 20px;
+  position: fixed;
+  height: 150px;
+  width: 300px;
+  top: 25%;
+  left: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.alertMessage {
+  margin-bottom: 10px;
+  font-weight: 300;
+  color: #2bae66ff;
+}
+
+.buttonsDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonsDiv .btn {
+  width: 80px;
+  background-color: #5652dd;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 13px;
+  padding: 5px;
+  margin: 5px;
+}
+
+@media (max-width: 425px) {
+  .createPostDiv {
+    justify-content: center;
+    margin-left: 0;
+  }
+  form {
+    width: 90%;
+  }
+  .successAlert {
+    left: 15%;
+  }
+}
+
+#alertBtn {
+    background-color: #E90E00;
+}
+@media (max-width: 375px) {
+  .successAlert {
+    left: 10%;
+  }
+}
+
+@media (max-width: 320px) {
+  .successAlert {
+    left: 3%;
+  }
+}

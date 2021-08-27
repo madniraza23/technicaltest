@@ -1,0 +1,108 @@
+.beforeEditDiv {
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.beforeEditDiv::after {
+  content: "";
+  position: fixed;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: black;
+  opacity: 0.3;
+}
+
+.editPostDiv form {
+  position: absolute;
+  top:0;
+  left: 25%;
+  margin: 8% auto;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px;
+  width: 25.25rem;
+  height: 40rem;
+}
+
+
+
+.editPostDiv form .editformHeading {
+  display: flex;
+  line-height: 2.43rem;
+  justify-content: space-between;
+  font-size: 1.62rem;
+  font-weight: 500px;
+  letter-spacing: 0.5;
+}
+
+.editPostDiv form .editfieldDivs {
+  margin-top: 1rem;
+}
+
+.editPostDiv form .editfieldDivs .editfieldHeadings {
+  font-size: 18px;
+}
+
+.editPostDiv form .editfieldDivs input {
+  width: 100%;
+  height: 1.5rem;
+  padding: 15px;
+  font-size: 18px;
+  border: 1px solid #868889
+}
+
+.editPostDiv form .editfieldDivs .editdescriptionInput {
+  padding: 15px;
+  height: 8.25rem;
+  width: 100%;
+  font-size: 18px;
+  resize: none;
+}
+
+.editPostDiv form select {
+  width: 100%;
+  height: 38px;
+  font-size: 18px;
+}
+
+.editPostDiv form select option {
+  font-size: 18px;
+  padding: 15px;
+}
+
+.editPostDiv form .editfieldDivs .editfieldInstructions {
+  font-size: 14px;
+  color: #868889;
+  letter-spacing: 0.5;
+}
+
+.editPostDiv form .updateButton {
+  border: 0;
+  outline: 0;
+  height: 30px;
+  padding: 5px 25px;
+  background: #5652dd;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 15px;
+
+}
+@media (max-width: 425px) {
+  .editPostDiv {
+      justify-content: center;
+      margin-left: 0;
+  }
+  .editPostDiv form {
+    width: 20.12rem;
+    left: 5%;
+  }
+}
