@@ -33,6 +33,7 @@
   font-size: 13px;
   padding: 5px;
   margin: 5px;
+  cursor: pointer;
 }
 
 @media (max-width: 425px) {

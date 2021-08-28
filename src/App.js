@@ -5,7 +5,7 @@ import CreatePost from "./views/CreatePost/CreatePost";
 import POST from "./components/Post/Post";
 import Filter from "./components/Filter/Filter";
 import EditPost from "./views/EditPost/EditPost";
-
+import Alert from "./components/Alerts/Alert";
 
 function App() {
   const [fetchedData, setFetchedData] = useState([]);
@@ -18,6 +18,7 @@ function App() {
   const [deleteAlert, setDeleteAlert] = useState(false);
   const [printData, setPrintData] = useState(true);
   const [index, setIndex] = useState(0);
+  const [postId, setPostId] = useState()
   const [showPostBtn, setShowPostBtn] = useState(false);
 
   useEffect(() => {
@@ -64,26 +65,26 @@ function App() {
     fetchCatogeries();
   }, []);
 
-  const deletePost = async (id, index) => {
-    console.log(id,index)
-    // const res = await fetch(
-    //   `https://us-central1-react-test-dd08f.cloudfunctions.net/posts/${id}`,
-    //   {
-    //     method: "DELETE",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       "test-id": "086754ee-01f4-11ec-9a03-0242ac130003",
-    //     },
-    //   }
-    // )
-    //   .then((response) => {
-    //     console.log(response);
-    //     const currIndex = fetchedData.indexOf(fetchedData[index]);
-    //     fetchedData.splice(currIndex, 1);
-    //     setPrintData(!printData);
-    //     setDeleteAlert(false);
-    //   })
-    //   .catch((error) => alert(error.message));
+  const deletePost = async (index, id) => {
+    console.log('id===>',id,'index==>',index)
+    const res = await fetch(
+      `https://us-central1-react-test-dd08f.cloudfunctions.net/posts/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "test-id": "086754ee-01f4-11ec-9a03-0242ac130003",
+        },
+      }
+    )
+      .then((response) => {
+        console.log(response);
+        const currIndex = fetchedData.indexOf(fetchedData[index]);
+        fetchedData.splice(currIndex, 1);
+        setPrintData(!printData);
+        setDeleteAlert(false);
+      })
+      .catch((error) => alert(error.message));
   };
 
   const filter = (e) => {
@@ -132,7 +133,13 @@ function App() {
 
           <div className="postContent">
             {fetchedData
-              .sort((a, b) => b.sort_order - a.sort_order)
+              .sort((a, b) => {
+                if(!a.sort_order){
+                  a.sort_order = 3
+                }
+                  return a.sort_order - b.sort_order
+                
+                })
               .map((post, currIndex) => {
                 for (let i = 0; i < category.length; i++) {
                   if (post.category == category[i].id) {
@@ -142,6 +149,8 @@ function App() {
                 return (
                   <POST
                     index={currIndex}
+                    setIndex={setIndex}
+                    setPostId={setPostId}
                     key={Math.random()}
                     category={categoryToPrint}
                     postDetails={post}
@@ -161,12 +170,28 @@ function App() {
         <>
           <div className="beforeEditDiv"></div>
           <EditPost
+            setPrintData={setPrintData}
+            printData = {printData}
             index={index}
             postDetails={fetchedData}
             currCategory={category}
             setEditPost={setEditPost}
           />
         </>
+      )}
+      {deleteAlert && (
+        <Alert
+          message="Are you sure you want to delete his post?"
+          funcBtn1={() => {
+            setDeleteAlert(false);
+          }}
+          funcBtn2={() => {
+            deletePost(index, postId);
+          }}
+          btn1Text="Cancel"
+          btn2Text="Delete"
+          bg="alertBtn"
+        />
       )}
     </div>
   );

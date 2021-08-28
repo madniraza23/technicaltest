@@ -9,26 +9,29 @@ import { useEffect } from "react";
 export default function POST({
   index,
   setIndex,
+  setPostId,
   category,
   postDetails,
   setEditPost,
-  deletePost,
-  setDeleteAlert,
-  deleteAlert,
+  setDeleteAlert
 }) {
   let { id, title, description } = postDetails;
   const [showOptions, setShowOptions] = useState(false);
 
   const options = () => {
     setShowOptions(!showOptions);
-    console.log("options", showOptions);
   };
 
   const postEditing = () => {
-    console.log("currentindex", index);
     setIndex(index);
     setEditPost(true);
   };
+
+  const confirmDelete = (index) => {
+    setPostId(id)
+    setDeleteAlert(true)
+    setIndex(index)
+  }
 
   return (
     <div className="postsDiv">
@@ -39,13 +42,14 @@ export default function POST({
           <div>
             {showOptions && (
               <>
+              <div className='optionHighLight'></div>
                 <ul className="mainOptionList">
                   <li onClick={postEditing}>
                     <EditIcon fontSize="small" className="icons"></EditIcon>Edit
                   </li>
                   <li
                     onClick={() => {
-                      setDeleteAlert(true);
+                      confirmDelete(index);
                     }}
                   >
                     <DeleteIcon fontSize="small" className="icons"></DeleteIcon>
@@ -71,20 +75,6 @@ export default function POST({
                     </li>
                   </ul>
                 </div>
-                {deleteAlert && (
-                  <Alert
-                    message="Are you sure you want to delete his post?"
-                    funcBtn1={() => {
-                      setDeleteAlert(false);
-                    }}
-                    funcBtn2={() => {
-                      deletePost(id, index);
-                    }}
-                    btn1Text="Cancel"
-                    btn2Text="Delete"
-                    bg="alertBtn"
-                  />
-                )}
               </>
             )}
           </div>

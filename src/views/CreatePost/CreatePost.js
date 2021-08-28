@@ -8,7 +8,7 @@ export default function CreatePost({ fetchedData, categories, setCreatePost }) {
     title: "",
     description: "",
     category: "",
-    sort_order: "",
+    sort_order: 3,
   });
   const [titleError, setTitleError] = useState(false);
   const [descriptionError, setDescriptionError] = useState(false);

@@ -6,6 +6,8 @@ export default function EditPost({
   postDetails,
   index,
   setEditPost,
+  printData,
+  setPrintData
 }) {
   const { id, title, description, category, sort_order } = postDetails[index];
   const [editedValue, setEditedValue] = useState({});
@@ -45,6 +47,8 @@ export default function EditPost({
       )
         .then((response) => {
           console.log(response);
+          setEditPost(false)
+          setPrintData(!printData)
         })
         .catch((e) => console.log("error", e.message));
     }
