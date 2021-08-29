@@ -46,7 +46,7 @@ export default function CreatePost({ fetchedData, categories, setCreatePost }) {
             sort_order: '',
           });
         })
-        .catch((e) => console.log("error", e.message));
+        .catch((e) => alert("error", e.message));
     }
   };
 

@@ -9,7 +9,7 @@ export default function Filter({
     return (
     <>
       <select className="sortSelect" onChange={filter}>
-        <option value="">Filter by category</option>
+        <option value=''>Filter by category</option>
         {categories &&
           categories.map((cat) => {
             return (

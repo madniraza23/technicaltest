@@ -16,7 +16,6 @@ function App() {
   const [createPost, setCreatePost] = useState(false);
   const [editPost, setEditPost] = useState(false);
   const [deleteAlert, setDeleteAlert] = useState(false);
-  const [printData, setPrintData] = useState(true);
   const [index, setIndex] = useState(0);
   const [postId, setPostId] = useState()
   const [showPostBtn, setShowPostBtn] = useState(false);
@@ -42,10 +41,7 @@ function App() {
     }
 
     fetchPosts(setCategory);
-  }, [printData]);
-
-  console.log("post", fetchedPosts);
-  console.log("data", fetchedData);
+  }, []);
 
   useEffect(() => {
     async function fetchCatogeries() {
@@ -66,7 +62,6 @@ function App() {
   }, []);
 
   const deletePost = async (index, id) => {
-    console.log('id===>',id,'index==>',index)
     const res = await fetch(
       `https://us-central1-react-test-dd08f.cloudfunctions.net/posts/${id}`,
       {
@@ -81,7 +76,6 @@ function App() {
         console.log(response);
         const currIndex = fetchedData.indexOf(fetchedData[index]);
         fetchedData.splice(currIndex, 1);
-        setPrintData(!printData);
         setDeleteAlert(false);
       })
       .catch((error) => alert(error.message));
@@ -98,15 +92,12 @@ function App() {
     } else if (result.length > 0) {
       setShowPostBtn(true);
       setFetchedData(result);
-      console.log("fetchedPosts", fetchedData);
     } else {
-      setFetchedData(fetchedPosts);
+      alert('category not found')
     }
   };
   const showData = () => {
     setFetchedData(fetchedPosts);
-    console.log("fetchedData", fetchedData);
-    console.log("fetchedPosts", fetchedPosts);
     setShowPostBtn(false);
   };
 
@@ -170,8 +161,6 @@ function App() {
         <>
           <div className="beforeEditDiv"></div>
           <EditPost
-            setPrintData={setPrintData}
-            printData = {printData}
             index={index}
             postDetails={fetchedData}
             currCategory={category}

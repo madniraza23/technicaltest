@@ -6,8 +6,6 @@ export default function EditPost({
   postDetails,
   index,
   setEditPost,
-  printData,
-  setPrintData
 }) {
   const { id, title, description, category, sort_order } = postDetails[index];
   const [editedValue, setEditedValue] = useState({});
@@ -23,7 +21,8 @@ export default function EditPost({
     setEditedData({ ...editedData, [event.target.name]: value });
     setEditedValue({
       [event.target.name]: value,
-    });
+    })
+    ;
   };
 
   const submitHandler = (e) => e.preventDefault();
@@ -32,7 +31,7 @@ export default function EditPost({
     if (!editedData.title || !editedData.description || !editedData.category) {
       alert("Please Add Necessary Data");
     } else {
-      console.log("edited", editedValue);
+      postDetails[index] = editedData
 
       await fetch(
         `https://us-central1-react-test-dd08f.cloudfunctions.net/posts/${id}`,
@@ -48,9 +47,8 @@ export default function EditPost({
         .then((response) => {
           console.log(response);
           setEditPost(false)
-          setPrintData(!printData)
         })
-        .catch((e) => console.log("error", e.message));
+        .catch((e) => alert("error", e.message));
     }
   };
 
